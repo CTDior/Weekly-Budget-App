@@ -2,7 +2,7 @@ const budgetForm = document.getElementById("startingBudget");
 const startingBudget = document.getElementById("weeklyBudgetAmount");
 const initialBudget = document.getElementById("weeklyBudgetTotal");
 const newPurchase = document.getElementById("purchases");
-const entTotal = parseFloat(document.getElementById("entertainment").innerHTML);
+let entTotal = parseFloat(document.getElementById("entertainment").innerHTML);
 const foodTotal = document.getElementById("food");
 const clothingTotal = document.getElementById("clothing");
 const billsTotal = document.getElementById("bills");
@@ -32,7 +32,8 @@ itemForm.addEventListener("submit", (e) => {
   if (purchaseCategory === "entertainment") {
     console.log(entTotal);
     // the following line is not adding the newItemCost to entTotal
-    entTotal.innerHTML += newItemCost;
+    entTotal += newItemCost;
+    entTotal.innerText = entTotal;
     console.log(entTotal);
     console.log(newItemCost);
     console.log(newPurchase);
