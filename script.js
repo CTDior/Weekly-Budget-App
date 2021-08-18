@@ -2,24 +2,31 @@ let budgetForm = document.getElementById("startingBudget");
 let startingBudget = document.getElementById("weeklyBudgetAmount");
 let initialBudget = document.getElementById("weeklyBudgetTotal");
 let newPurchase = document.getElementById("purchases");
-let entTotal = 0;
 let entTotalDisplay = document.getElementById("entertainment");
-let foodTotal = 0;
 let foodTotalDisplay = document.getElementById("food");
-let clothingTotal = 0;
 let clothingTotalDisplay = document.getElementById("clothing");
-let billsTotal = 0;
 let billsTotalDisplay = document.getElementById("bills");
-let totalExpenses = 0;
 let totalExpensesDisplay = document.getElementById("totalExpenses");
-let remainingBalance = 0;
 let remainingBalanceDisplay = document.getElementById("remainingBalance");
+
+let entTotal = 0;
+let foodTotal = 0;
+let clothingTotal = 0;
+let billsTotal = 0;
+let totalExpenses = 0;
+let remainingBalance = 0;
+let budgetTotal = 0;
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let budgetAmount = parseInt(startingBudget.value);
   initialBudget.innerHTML = budgetAmount;
+  console.log(budgetAmount);
+  const data = new FormData(budgetForm);
+  let startingTotal = data.get("weeklyBudgetAmount");
+  budgetTotal = startingTotal;
 });
+console.log(budgetTotal);
 
 let itemForm = document.getElementById("itemForm");
 let purchases = document.getElementById("purchases");
@@ -52,14 +59,12 @@ itemForm.addEventListener("submit", (e) => {
   }
   totalExpenses = clothingTotal + foodTotal + entTotal + billsTotal;
   totalExpensesDisplay.innerText = totalExpenses;
-  remainingBalance = totalExpenses;
+  remainingBalance = budgetTotal - totalExpenses;
+  remainingBalanceDisplay.innerText = remainingBalance;
+  console.log(budgetTotal);
+  console.log(totalExpenses);
+  console.log(remainingBalance);
 });
-
-//function balance() {
-// console.log(totalExpenses);
-//remainingBalance = weeklyBudgetTotal - totalExpenses;
-//emainingBalance.innerText = "$" + remainingBalance;
-//}
 
 // Subtract newItemCost from weeklyBudgetTotal
 // and display the remaining balance.
@@ -74,3 +79,8 @@ itemForm.addEventListener("submit", (e) => {
 // from it to display the remaining balance. Or, use a loop
 // to go over the totals from the four categories and
 // subtract them from the starting budget value.
+
+// THINGS TO DO
+// fix remaining total issue
+// add list for expenses
+// make it look good in css
