@@ -10,11 +10,10 @@ let clothingTotal = 0;
 let clothingTotalDisplay = document.getElementById("clothing");
 let billsTotal = 0;
 let billsTotalDisplay = document.getElementById("bills");
-var budgetAmount;
-let remainingBalance;
-// let remainingBalance = budgetAmount;
-// console.log(budgetAmount);
-
+let totalExpenses = 0;
+let totalExpensesDisplay = document.getElementById("totalExpenses");
+let remainingBalance = 0;
+let remainingBalanceDisplay = document.getElementById("remainingBalance");
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -31,16 +30,16 @@ itemForm.addEventListener("submit", (e) => {
 
   // Get the new item cost
   let newItemCost = parseFloat(itemAmount.value);
-  
+
   // Get the category of the new item
   let purchaseCategoryElement = document.getElementById("purchases");
   let purchaseCategory = purchaseCategoryElement.value;
-  
+
   // Match the category to the total
   if (purchaseCategory === "entertainment") {
     // the following line is not adding the newItemCost to entTotal
     entTotal += newItemCost;
-    entTotalDisplay.innerText = entTotal;    
+    entTotalDisplay.innerText = entTotal;
   } else if (purchaseCategory === "food") {
     foodTotal += newItemCost;
     foodTotalDisplay.innerText = foodTotal;
@@ -51,22 +50,27 @@ itemForm.addEventListener("submit", (e) => {
     billsTotal += newItemCost;
     billsTotalDisplay.innerText = billsTotal;
   }
-
- 
-
+  totalExpenses = clothingTotal + foodTotal + entTotal + billsTotal;
+  totalExpensesDisplay.innerText = totalExpenses;
+  remainingBalance = totalExpenses;
 });
 
- // Subtract newItemCost from weeklyBudgetTotal
-  // and display the remaining balance. 
-  // budget amount - newItemCost = remainingBalance
-  // let updatedBudgetAmount = parseFloat(startingBudget.value);
-  // updatedBudgetAmount - newItemCost;
-  // console.log(remainingBalance);
+//function balance() {
+// console.log(totalExpenses);
+//remainingBalance = weeklyBudgetTotal - totalExpenses;
+//emainingBalance.innerText = "$" + remainingBalance;
+//}
 
+// Subtract newItemCost from weeklyBudgetTotal
+// and display the remaining balance.
+// budget amount - newItemCost = remainingBalance
+// let updatedBudgetAmount = parseFloat(startingBudget.value);
+// updatedBudgetAmount - newItemCost;
+// console.log(remainingBalance);
 
-  // Current problem: We cannot get a handle on the initial 
-  // starting budget number to use as a starting value. We 
-  // want to use this number, then subtract each new item 
-  // from it to display the remaining balance. Or, use a loop
-  // to go over the totals from the four categories and 
-  // subtract them from the starting budget value.  
+// Current problem: We cannot get a handle on the initial
+// starting budget number to use as a starting value. We
+// want to use this number, then subtract each new item
+// from it to display the remaining balance. Or, use a loop
+// to go over the totals from the four categories and
+// subtract them from the starting budget value.
