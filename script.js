@@ -8,6 +8,8 @@ let clothingTotalDisplay = document.getElementById("clothing");
 let billsTotalDisplay = document.getElementById("bills");
 let totalExpensesDisplay = document.getElementById("totalExpenses");
 let remainingBalanceDisplay = document.getElementById("remainingBalance");
+let miscTotalDisplay = document.getElementById("misc");
+let entItemList = document.getElementById("entItemList");
 
 let entTotal = 0;
 let foodTotal = 0;
@@ -16,6 +18,8 @@ let billsTotal = 0;
 let totalExpenses = 0;
 let remainingBalance = 0;
 let budgetTotal = 0;
+let miscTotal = 0;
+let foodItemList;
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -24,6 +28,7 @@ budgetForm.addEventListener("submit", (e) => {
   console.log(budgetAmount);
   const data = new FormData(budgetForm);
   let startingTotal = data.get("weeklyBudgetAmount");
+  console.log(data);
   budgetTotal = startingTotal;
 });
 console.log(budgetTotal);
@@ -47,6 +52,10 @@ itemForm.addEventListener("submit", (e) => {
     // the following line is not adding the newItemCost to entTotal
     entTotal += newItemCost;
     entTotalDisplay.innerText = entTotal;
+    let newItem = document.createElement("li");
+    newItem.add(purchases);
+    newItem.innerText = purchases;
+    entItemList.append(newItem);
   } else if (purchaseCategory === "food") {
     foodTotal += newItemCost;
     foodTotalDisplay.innerText = foodTotal;
@@ -56,8 +65,12 @@ itemForm.addEventListener("submit", (e) => {
   } else if (purchaseCategory === "bills") {
     billsTotal += newItemCost;
     billsTotalDisplay.innerText = billsTotal;
+  } else if (purchaseCategory === "misc") {
+    miscTotal += newItemCost;
+    miscTotalDisplay.innerText = miscTotal;
   }
-  totalExpenses = clothingTotal + foodTotal + entTotal + billsTotal;
+
+  totalExpenses = clothingTotal + foodTotal + entTotal + billsTotal + miscTotal;
   totalExpensesDisplay.innerText = totalExpenses;
   remainingBalance = budgetTotal - totalExpenses;
   remainingBalanceDisplay.innerText = remainingBalance;
