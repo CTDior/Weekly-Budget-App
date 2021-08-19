@@ -61,9 +61,7 @@ itemForm.addEventListener("submit", (e) => {
   // Put the entered name (from the form) into the new item
 
   
-  if (remainingBalance < newItemCost) {
-    alert("Purchasing this item will put you over budget!");
-  }
+  
   
 
 
@@ -99,9 +97,11 @@ itemForm.addEventListener("submit", (e) => {
   totalExpensesDisplay.innerText = totalExpenses;
   remainingBalance = budgetTotal - totalExpenses;
   remainingBalanceDisplay.innerText = remainingBalance;
-  console.log(budgetTotal);
-  console.log(totalExpenses);
-  console.log(remainingBalance);
+
+  if (remainingBalance <= 0) {
+    alert("Purchasing this item will put you over budget!");
+  }
+  
 });
 
 // Subtract newItemCost from weeklyBudgetTotal
