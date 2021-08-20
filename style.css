@@ -1,3 +1,52 @@
-.img {
-  fill-opacity: inherit;
+body {
+  background-color: gray;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: darkgray;
+}
+
+#startingBudget {
+  text-align: center;
+  margin: 20px;
+  color: aquamarine;
+}
+form {
+  color: burlywood;
+  font-size: large;
+}
+
+#itemForm {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+#expense {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: yellow;
+  border: 2px solid #eee;
+}
+
+input {
+  background-color: white;
+  padding: 5px;
+  margin: 5px 0;
+}
+#purchases {
+  background-color: cyan;
+}
+div {
+  padding: 3em;
+  border-radius: 20;
+
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
 }
