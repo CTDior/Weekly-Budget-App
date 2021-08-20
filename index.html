@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Budget Buddy</title>
 </head>
 <body>
-    <div>
+    
         <div>
            <h1>Budget Buddy</h1>
            <div> 
@@ -23,6 +23,9 @@
         <!--Include list of purchases somewhere-->
             <div> 
                 <form id="itemForm">
+                    <label for="itemName">Item</label>
+                        <input type="text" id="itemName" placeholder="Item Name">
+                        
                     <label for="itemCost">Cost</label>
                     <input type="number" step=".01" id="itemCost">
                     <select name="" id="purchases">
@@ -32,9 +35,7 @@
                         <option value="bills">Bills</option>
                         <option value="misc">Misc.</option>
                     </select>
-                        <label for="itemName">Item</label>
-                        <input type="text" id="itemName" placeholder="Item Name">
-                        <input type="submit"></input>
+                    <input type="submit"></input>
                 </form>
             </div>
         </div>
