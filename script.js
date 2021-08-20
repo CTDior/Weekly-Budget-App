@@ -16,7 +16,6 @@ let clothingItemList = document.getElementById("clothingItemList");
 let billsItemList = document.getElementById("billsItemList");
 let miscItemList = document.getElementById("miscItemList");
 
-
 let newItemName = document.getElementById("itemName");
 let newItemNameValue = newItemName.value;
 
@@ -28,7 +27,6 @@ let totalExpenses = 0;
 let remainingBalance = 0;
 let budgetTotal = 0;
 let miscTotal = 0;
-
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -56,14 +54,9 @@ itemForm.addEventListener("submit", (e) => {
   let purchaseCategoryElement = document.getElementById("purchases");
   let purchaseCategory = purchaseCategoryElement.value;
 
-  // Make a new item 
+  // Make a new item
   let newItem = document.createElement("li");
   // Put the entered name (from the form) into the new item
-
-  
-  
-  
-
 
   // Match the category to the total
   if (purchaseCategory === "entertainment") {
@@ -71,7 +64,7 @@ itemForm.addEventListener("submit", (e) => {
     entTotalDisplay.innerText = entTotal;
     newItem.innerText = `${newItemName.value}: $${newItemCost}`;
     entItemList.appendChild(newItem);
-    } else if (purchaseCategory === "food") {
+  } else if (purchaseCategory === "food") {
     foodTotal += newItemCost;
     foodTotalDisplay.innerText = foodTotal;
     newItem.innerText = `${newItemName.value}: $${newItemCost}`;
@@ -97,11 +90,15 @@ itemForm.addEventListener("submit", (e) => {
   totalExpensesDisplay.innerText = totalExpenses;
   remainingBalance = budgetTotal - totalExpenses;
   remainingBalanceDisplay.innerText = remainingBalance;
+  let progressDoneElement = document.querySelector(".progress-done");
+  let expenseBar = (totalExpenses / budgetTotal) * 100;
+  progressDoneElement.style.width = expenseBar + "%";
 
   if (remainingBalance <= 0) {
     alert("Purchasing this item will put you over budget!");
+    let audio = new Audio("I dont think you have the facilities, Big Man.mp3");
+    audio.play();
   }
-  
 });
 
 // Subtract newItemCost from weeklyBudgetTotal

@@ -8,25 +8,24 @@
     <title>Budget Buddy</title>
 </head>
 <body>
-    
         <div>
            <h1>Budget Buddy</h1>
            <div> 
                <form id="startingBudget">
-                   <label for="weeklyBudgetAmount">Weekly Budget Amount</label>
-                   <input type="number" name="weeklyBudgetAmount" id="weeklyBudgetAmount">
-                   <input type="submit"></input>
+                   <label for="weeklyBudgetAmount">Weekly Budget Amount:</label>
+                   <input type="number" name="weeklyBudgetAmount" id="weeklyBudgetAmount" class="inputButton">
+                   <input type="submit" class="inputButton"></input>
                 </form>
            </div>
         </div>
-        <div>
-        <!--Include list of purchases somewhere-->
-            <div> 
+        
+        
+            <div class="itemContainer"> 
                 <form id="itemForm">
-                    <label for="itemName">Item</label>
-                        <input type="text" id="itemName" placeholder="Item Name">
+                    <label for="itemName" class="itemLabel">Item:</label>
+                    <input type="text" id="itemName" placeholder="Item Name">
                         
-                    <label for="itemCost">Cost</label>
+                    <label for="itemCost">Cost:</label>
                     <input type="number" step=".01" id="itemCost">
                     <select name="" id="purchases">
                         <option value="entertainment">Entertainment</option>
@@ -35,31 +34,45 @@
                         <option value="bills">Bills</option>
                         <option value="misc">Misc.</option>
                     </select>
-                    <input type="submit"></input>
+                    <input type="submit" class="inputButton"></input>
                 </form>
             </div>
-        </div>
         <div>
             <div id="expense">
-                <p>Weekly Budget Total: <span id="weeklyBudgetTotal">0</span></p>
-                <p>Total Expenses: <span id="totalExpenses">0</span></p>
-                <p>Remaining: <span id="remainingBalance">0</span></p>
+                <p>Weekly Budget Total: $<span id="weeklyBudgetTotal">0</span></p>
+                <p>Total Expenses: $<span id="totalExpenses">0</span></p>
+                <p>Remaining: $<span id="remainingBalance">0</span></p>
             </div>
-         
+            <div class="bar-container">
+                <div class="progress" data-done="70">
+                    <div class="progress-done">
+                        Purchases
+                    </div>
+                </div>
+            </div> 
             <div class="" id="whatTheyBought">
-                <p>Entertainment: <span id="entertainment">0</span></p>
-                <ul id="entItemList"></ul>
-                <p>Food: <span id="food">0</span></p>
-                <ul id="foodItemList"></ul>
-                <p>Clothing: <span id="clothing">0</span></p>
-                <ul id="clothingItemList"></ul>
-                <p>Bills: <span id="bills">0</span></p>
-                <ul id="billsItemList"></ul>
-                <p>Misc: <span id="misc"> 0</span></p>
-                <ul id="miscItemList"></ul>
+                <div>
+                    <p>Entertainment: $<span id="entertainment">0</span></p>
+                    <ul id="entItemList"></ul>
+                </div>
+                <div>
+                    <p>Food: $<span id="food">0</span></p>
+                    <ul id="foodItemList"></ul>
+                </div>
+                <div>
+                    <p>Clothing: $<span id="clothing">0</span></p>
+                    <ul id="clothingItemList"></ul>
+                </div>
+                <div>
+                    <p>Bills: $<span id="bills">0</span></p>
+                    <ul id="billsItemList"></ul>
+                </div>
+                <div>
+                    <p>Misc: $<span id="misc">0</span></p>
+                    <ul id="miscItemList"></ul>
+                </div>
             </div>
-        </div>
-    </div>       
+        </div>      
     <script src="script.js"></script>
 </body>
 </html>
